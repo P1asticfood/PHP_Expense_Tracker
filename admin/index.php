@@ -1,8 +1,7 @@
 <?php
 require '../config.php';
 require '../db.php';
-
-if (!isset($_SESSION["role"]) || $_SESSION["role"] !== "admin") {
+if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'admin' && $_SESSION['role'] !== 'superadmin') {
     header("Location: ../login.php");
     exit();
 }

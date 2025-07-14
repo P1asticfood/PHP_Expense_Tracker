@@ -32,12 +32,13 @@ $expense = $result->fetch_assoc();
 // Handle update submission
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $title = $_POST['title'];
+    $description = $_POST['description'];
     $amount = $_POST['amount'];
     $category = $_POST['category'];
     $date = $_POST['date'];
 
-    $update = $conn->prepare("UPDATE expenses SET title=?, amount=?, category=?, date=? WHERE id=? AND user_id=?");
-    $update->bind_param("sdssii", $title, $amount, $category, $date, $expense_id, $uid);
+    $update = $conn->prepare("UPDATE expenses SET title=?,description=? ,amount=?, category=?, date=? WHERE id=? AND user_id=?");
+    $update->bind_param("ssdssii", $title,$description, $amount, $category, $date, $expense_id, $uid);
     $update->execute();
 
     header("Location: dashboard.php");
@@ -59,6 +60,11 @@ include 'includes/header.php';
                         <label for="title" class="form-label">Title</label>
                         <input type="text" name="title" id="title" class="form-control" required
                                value="<?= htmlspecialchars($expense['title']) ?>">
+                    </div>
+                    <div class="mb-3">
+                        <label for="description" class="form-label">Description</label>
+                        <input type="text" name="description" id="description" class="form-control" required
+                               value="<?= htmlspecialchars($expense['description']) ?>">
                     </div>
 
                     <div class="mb-3">

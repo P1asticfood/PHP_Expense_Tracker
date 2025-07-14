@@ -1,0 +1,24 @@
+/* Make the wrapper take full height */
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+.wrapper {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Make content area grow to push footer down */
+.content {
+    flex: 1;
+}
+
+/* Optional: style your footer */
+footer {
+    background-color: #1c1c1c;
+    color: white;
+    text-align: center;
+    padding: 15px 0;
+}

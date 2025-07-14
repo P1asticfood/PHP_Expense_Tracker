@@ -49,16 +49,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     // Final submission
     if (!array_filter($errors)) {
         $sql = "INSERT INTO users(username, email, password, gender) VALUES ('$username', '$email', '$password', '$gender')";
-        // $stmt = $conn->prepare($sql);
-        // $stmt->bind_param("sss", $username, $password, $role);
-
-        // if ($stmt->execute()) {
-        //   $_SESSION['success'] = "User registered successfully!";
-        //   header("Location: login.php");
-        //   exit();
-        // } else {
-        //   $errors['username'] = "Something went wrong. Please try again.";
-        // }
         $res = mysqli_query($conn, $sql);
         if ($res) {
             $_SESSION['success'] = "user added sucessfully";
@@ -156,7 +146,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 </select>
             </div>
 
-            <button type="submit" class="btn btn-register w-100">Register</button>
+            <button type="submit" class="btn btn-register w-100"><a href="login.php">Register</a></button>
         </form>
         <div class="text-center mt-3">
             <small>Already registered? <a href="login.php">Login here</a></small>

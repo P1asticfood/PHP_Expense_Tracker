@@ -31,6 +31,7 @@ $result = $conn->query($sql);
                                 <th>#</th>
                                 <th>User</th>
                                 <th>Title</th>
+                                <th>Description</th>
                                 <th>Amount</th>
                                 <th>Category</th>
                                 <th>Date</th>
@@ -43,6 +44,7 @@ $result = $conn->query($sql);
                                     <td><?= $sn++ ?></td>
                                     <td><?= htmlspecialchars($row['username']) ?></td>
                                     <td><?= htmlspecialchars($row['title']) ?></td>
+                                    <td><?= htmlspecialchars($row['description']) ?></td>
                                     <td>Rs. <?= number_format($row['amount'], 2) ?></td>
                                     <td><?= htmlspecialchars($row['category']) ?></td>
                                     <td><?= date("d M Y", strtotime($row['date'])) ?></td>
